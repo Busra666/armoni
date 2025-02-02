@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+    <head>
+        <meta charset="utf-8">
+        <title>ALDE Home</title>
+        <link rel="icon" href="img/favicon.png" type="image/png">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free HTML Templates" name="keywords">
+        <meta content="Free HTML Templates" name="description">
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .payment-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .payment-container h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .order-summary {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .order-summary h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .order-summary p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input {
+            width: 95%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #333;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-color: #4CAF50;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(135deg, #6be585, #4CAF50);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #4CAF50, #3e8c42);
+            transform: scale(1.02);
+        }
+
+        /* Bulanık Arka Plan */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/arka_plan_1.png') no-repeat center center/cover;
+            filter: blur(6px); /* Bulanıklaştırma efekti */
+            z-index: -1; /* Arka planda kalmasını sağlar */
+        }
+
+        @media (max-width: 480px) {
+            .payment-container {
+                padding: 20px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="background"></div> <!-- Bulanık arka plan -->
+
+<div class="payment-container">
+    <h1>Kart ile Ödeme</h1>
+
+<div class="order-summary">
+    <h3>Sipariş Özeti</h3>
+    <p><strong>Adres:</strong> <span id="addressTitle"></span></p>
+    <p><strong>Toplam Tutar:</strong> <span id="totalPrice"></span> ₺</p>
+</div>
+
+<form id="payment-form">
+    <label for="card-holder-name">Kart Sahibinin Adı</label>
+    <input type="text" id="card-holder-name" name="cardHolderName" placeholder="Ad Soyad" required>
+
+    <label for="card-number">Kart Numarası</label>
+    <input type="text" id="card-number" name="cardNumber" maxlength="16" placeholder="1111 2222 3333 4444" required>
+
+    <label for="expiry-date">Son Kullanma Tarihi (AA/YY)</label>
+    <input type="text" id="expiry-date" name="expiryDate" placeholder="MM/YY" required>
+
+    <label for="cvc">CVC</label>
+    <input type="text" id="cvc" name="cvc" maxlength="3" placeholder="123" required>
+
+    <button type="submit">Ödemeyi Tamamla</button>
+</form>
+</div>
+
+<script>
+    // URL'den gelen parametreleri al
+    const urlParams = new URLSearchParams(window.location.search);
+    const totalPrice = urlParams.get("totalPrice");
+    const addressTitle = urlParams.get("addressTitle");
+    const addressId = urlParams.get("addressId");
+    const billingAddressId = urlParams.get("billingAddressId");
+
+    // Sipariş özetini doldur
+    document.getElementById("totalPrice").textContent = totalPrice;
+    document.getElementById("addressTitle").textContent = decodeURIComponent(addressTitle);
+
+    // Form submit işlemi
+    const form = document.getElementById("payment-form");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const res = await fetch("http://192.168.1.13/account.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "module": "addresses",
+                "action": "read",
+                "user_id": localStorage.getItem("userId"),
+            })
+        });
+
+        if (!res.ok) {
+            console.error("Sunucudan geçersiz bir yanıt alındı:", res.status, res.statusText);
+            return;
+        }
+
+        try {
+            const data = await res.json(); // Sunucudan gelen JSON'u çözümle
+            console.log("Sunucudan Gelen Veri:", data);
+            // İşlemlerinizi burada gerçekleştirebilirsiniz
+        } catch (error) {
+            console.error("JSON çözümleme hatası:", error);
+        }
+        /*
+        let cartItems = localStorage.getItem("cartItems");
+        if (cartItems) {
+            cartItems = JSON.parse(cartItems); // JSON verisini nesneye dönüştür
+        } else {
+            cartItems = []; // Eğer hiç item yoksa boş dizi olarak başlat
+        }
+        const shippingCost = totalPrice < 200 ? 39.99 : 0;
+        function generateConversationId() {
+            const timestamp = Date.now(); // Geçerli zaman damgası
+            const randomString = Math.random().toString(36).substring(2, 15); // Rastgele bir dize oluşturuluyor
+            return timestamp + randomString; // Zaman damgası ve rastgele dizeyi birleştir
+        }
+
+        const conversationId = generateConversationId();
+
+        localStorage.setItem("conversationId", conversationId);
+
+        // Form bilgilerini al
+        const paymentData = {
+            totalPrice: totalPrice,
+            cardHolderName: document.getElementById("card-holder-name").value,
+            cardNumber: document.getElementById("card-number").value,
+            expiryMonth: document.getElementById("expiry-date").value.split('/')[0],
+            expiryYear: document.getElementById("expiry-date").value.split('/')[1],
+            cvc: document.getElementById("cvc").value,
+            basketItems: cartItems.map(item => ({
+                id: item.cart_id,
+                name: item.name,
+                category1: "kitap",
+                itemType: "PHYSICAL",
+                price: item.price * item.quantity,
+            })),
+            billingAddress: {
+                contactName: document.getElementById("card-holder-name").value,
+                city: "İstanbul", // Bu veriler dinamik olarak kullanıcıdan alınabilir
+                country: "Turkey",
+                address: "Beşiktaş, Barbaros Bulvarı",
+                zipCode: "34000"
+            },
+            shippingAddress: {
+                contactName: document.getElementById("card-holder-name").value,
+                city: "İstanbul", // Aynı şekilde teslimat adresi de kullanıcıdan alınabilir
+                country: "Turkey",
+                address: "Beşiktaş, Barbaros Bulvarı",
+                zipCode: "34000"
+            },
+            shippingCost:shippingCost,
+            conversationId: conversationId,
+        };
+
+        console.log("Ödeme bilgileri alındı:", paymentData);
+
+        // Backend'e ödeme bilgilerini gönder
+        const response = await fetch("http://192.168.1.13/payment.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(paymentData)
+        });
+        console.warn(response)
+
+        const htmlContent = await response.text(); // HTML içeriği al
+        const newWindow = window.open("", "_blank"); // Yeni bir pencere aç
+        newWindow.document.write(htmlContent); // HTML içeriğini yazdır
+
+        newWindow.document.close(); // Pencereyi kapat
+
+        if (conversationId) {
+            const intervalId = setInterval(async () => {
+                try {
+                    const response = await fetch("http://192.168.1.13/account.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            action: "verification",
+                            module: "orders",
+                            conversationId: conversationId,
+                            userId: localStorage.getItem("userId")
+                        }),
+                    })
+                        if (!response.ok) {
+                            throw new Error("API'den cevap alınamadı.");
+                        }
+                        let jsonData = await response.json();
+                    if (jsonData && jsonData[0]?.status === "success") {
+
+                        // LocalStorage'dan cartItems verisini al
+                        let cartItems = localStorage.getItem("cartItems");
+                        if (cartItems) {
+                            cartItems = JSON.parse(cartItems); // JSON formatını nesneye çevir
+                        } else {
+                            cartItems = []; // Eğer boşsa, varsayılan boş dizi
+                        }
+
+                        // Toplam fiyat ve diğer bilgileri alın
+                        const totalPrice = parseFloat(urlParams.get("totalPrice")); // URL'den toplam fiyat
+                        const userId = localStorage.getItem("userId") // Kullanıcı ID'si, oturum veya başka bir kaynaktan alınabilir
+
+                        // Gönderilecek JSON verisi
+                        const orderData = {
+                            action: "create",
+                            module: "orders",
+                            user_id: userId,
+                            total_price: totalPrice,
+                            items: cartItems.map((item) => ({
+                                product_id: item.product_id, // Ürün ID'si
+                                quantity: item.quantity, // Ürün miktarı
+                                price: item.price // Ürün fiyatı
+                            }))
+                        };
+
+                        console.log("Gönderilecek Sipariş Verisi:", orderData);
+
+                        // Backend'e gönder
+                        try {
+                            const response = await fetch("http://192.168.1.13/account.php", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(orderData)
+                            });
+
+                            if (!response.ok) {
+                                throw new Error("API'ye erişilemedi.");
+                            }
+
+                            console.warn(response)
+                            const result = await response.json();
+                            console.log("Sipariş Yanıtı:", result);
+
+                            debugger;
+                            clearInterval(intervalId); // Kontrolü durdur
+                            window.location.href = "siparis-tamamlandi.html"; // Başarılıysa yönlendirme
+                        }
+                        catch(error) {
+                            debugger;
+                            console.log(error);
+                        }
+                    }
+                } catch (error) {
+                    console.error("Durum kontrol hatası:", error);
+                }
+            }, 1000); // 3 saniyede bir kontrol
+        } else {
+            console.error("conversationId bulunamadı!");
+        }
+
+
+         */
+
+    });
+</script>
+<script src="js/security.js"></script>
+</body>
+</html>

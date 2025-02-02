@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ALDE Home</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- Topbar Start -->
+
+<!-- Mobil Aşağı Bar -->
+
+<div class="mobile-bottom-bar d-lg-none">
+    <a href="giris.html" id="authLink" class="bottom-bar-item">
+        <i class="fa fa-user"></i>
+        <span id="authText">Giriş Yap veya Üye Ol</span>
+    </a>
+    <a href="Favorilerim.html" class="bottom-bar-item2 position-relative text-center">
+        <!-- Kalp İkonu -->
+        <i class="fa fa-heart" style="font-size: 20px;"></i>
+        <!-- Favori Sayısı -->
+        <span id="fav-count-1" class="badge border border-secondary rounded-circle position-absolute">0</span>
+        <!-- Favoriler Metni -->
+        <span style="display: block; font-size: 14px; margin-top: 5px;">Favoriler</span>
+    </a>
+
+    <a href="Sepetim.html" class="bottom-bar-item2 position-relative text-center">
+        <i class="fa fa-shopping-cart" style="font-size: 20px;"></i>
+        <span id="cart-count-1" class="badge border border-secondary rounded-circle position-absolute">0</span>
+        <span style="display: block; font-size: 14px; margin-top: 5px;">Sepetim</span>
+    </a>
+</div>
+
+
+<header class="sticky-header">
+    <!-- Top Section -->
+    <div class="top-section bg-secondary py-1 px-xl-5">
+        <div class="row">
+            <div class="col-lg-6 d-none d-lg-block">
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div id="menu" class="btn-group">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Üye Girişi veya Üye Ol</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a href="giris.html" class="dropdown-item" role="button">Üye Girişi</a>
+                        <a href="kayit.html" class="dropdown-item" role="button">Üye Ol</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-inline-flex align-items-center d-block d-lg-none">
+                <a href="" class="btn px-0 ml-2">
+                    <i class="fas fa-heart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                </a>
+                <a href="" class="btn px-0 ml-2">
+                    <i class="fas fa-shopping-cart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Section -->
+    <div class="main-section bg-light py-3 px-xl-5">
+        <div class="row align-items-center">
+            <div class="col-lg-4">
+                <a href="index.html" class="text-decoration-none">
+                    <img src="img/logo.png" alt="Alde Home Logo" class="img-fluid" style="max-height: 60px;">
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <form action="">
+                    <div class="input-group">
+                        <div class="search-container">
+                            <input type="text" class="form-control search-input" placeholder="Arama Yap">
+                            <div class="input-group-append">
+                            <span class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="navbar-section bg-dark">
+        <div class="row px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
+                    <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>KATEGORİLER</h6>
+                    <i class="fa fa-angle-down text-dark"></i>
+                </a>
+                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
+                    <div class="navbar-nav w-100 category-list">
+                        <!-- Kategoriler buraya dinamik olarak yüklenecek -->
+                    </div>
+                </nav>
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+                    <a href="index.html" class="text-decoration-none d-block d-lg-none">
+                        <img src="img/logo_mobil.png" alt="Alde Home Logo" class="img-fluid" style="max-height: 60px;">
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+
+                        <div class="navbar-nav mr-auto py-0" id="navbar-menu-container">
+                        </div>
+                        <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                            <a href="Favorilerim.html" class="btn px-0">
+                                <i class="fas fa-heart text-primary"></i>
+                                <span id="fav-count" class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                            </a>
+                            <a href="Sepetim.html" class="btn px-0 ml-3">
+                                <i class="fas fa-shopping-cart text-primary"></i>
+                                <span id="cart-count" class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;"></span>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Navbar End -->
+
+<!--    &lt;!&ndash; Breadcrumb Start &ndash;&gt;-->
+
+<!--    <div class="container-fluid">-->
+<!--        <div class="row px-xl-5">-->
+<!--            <div class="col-12">-->
+<!--                <nav class="breadcrumb bg-light mb-30">-->
+<!--                    <a class="breadcrumb-item text-dark" href="index.html">Anasayfa</a>-->
+<!--                    <a class="breadcrumb-item text-dark" href="Sepetim.html">Sipariş Tamamla</a>-->
+<!--                </nav>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; Breadcrumb End &ndash;&gt;-->
+
+
+<div class="siparis-tamamla">
+    <!-- Adres Bilgileri -->
+    <div class="adres-bilgileri">
+        <div class="baslik">
+            <span class="icon">📍</span>
+            <span>Adres Bilgileri</span>
+        </div>
+        <div class="adres-detaylari">
+            <h3>Teslimat Adresi</h3>
+            <div class="adres-secenek">
+                <input type="checkbox" style="width:2%" id="adres1" name="adres" checked>
+                <label for="adres1">
+                    <b>evim</b>
+                    <div class="adres-detay">
+                        Büşra PEHLİVAN<br>
+                        güzlekent mahallesi 510.sokak ipek sitesi no:2a/1 eryaman<br>
+                        Etimesgut Ankara Türkiye<br>
+                        Tel: 905542950219
+                    </div>
+                </label>
+            </div>
+            <button class="yeni-adres-ekle">+ Yeni Adres Ekle</button>
+        </div>
+
+        <!-- Fatura Adresi Seçeneği -->
+        <div class="fatura-adresi-secenek">
+            <label for="fatura-adresi-farkli" style="display: flex; align-items: center;">
+                <input type="checkbox" id="fatura-adresi-farkli" name="fatura-adresi-farkli" style="margin-right: 8px;">
+                Fatura Adresi ile Teslimat Adresi farklı olsun
+            </label>
+        </div>
+
+        <!-- Buraya adres defterimdeki diğer adresler seçenek olarak gelebilir -->
+        <div class="adres-defteri" style="display: none">
+            <label for="adres-dropdown">Fatura Adresim:</label>
+            <select id="adres-dropdown" name="adres-dropdown">
+                <option value="" disabled selected>Adres seçin</option>
+                <option value="adres1">
+                    Büşra PEHLİVAN - Güzlekent Mahallesi 510. Sokak İpek Sitesi No:2A/1, Eryaman, Etimesgut, Ankara, Türkiye
+                </option>
+                <option value="adres2">
+                    İş Yeri - Çankaya, Ankara, Türkiye
+                </option>
+                <option value="adres3">
+                    Yazlık - Bodrum, Muğla, Türkiye
+                </option>
+            </select>
+        </div>
+
+        <!-- Kurumsal/Bireysel Fatura Seçeneği -->
+        <div class="fatura-tipi-secenek" style="margin-top: 15px;">
+            <label for="fatura-tipi">Fatura Tipi:</label>
+            <select id="fatura-tipi" name="fatura-tipi" style="width: 100%; padding: 8px;">
+                <option value="bireysel" selected>Bireysel</option>
+                <option value="kurumsal">Kurumsal</option>
+            </select>
+        </div>
+
+
+        <!-- Kurumsal Fatura Bilgileri -->
+        <div id="kurumsal-fatura-bilgileri" style="display: none; margin-top: 20px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9;">
+            <h3 style="font-size: 1.5em; color: #333; text-align: center; margin-bottom: 20px;">Kurumsal Fatura Bilgileri</h3>
+
+            <div style="margin-bottom: 15px;">
+                <label style="font-weight: bold; display: block; margin-bottom: 5px;">Fatura Türü:</label>
+                <div style="display: flex; gap: 50px;">
+                    <label style="display: flex; flex-direction: column; align-items: center;">
+                        <input type="radio" name="fatura-turu" value="e-arsiv" style="margin-right: 5px;"> E-Arşiv
+                    </label>
+                    <label style="display: flex; flex-direction: column; align-items: center;">
+                        <input type="radio" name="fatura-turu" value="e-fatura" style="margin-right: 5px;"> E-Fatura
+                    </label>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="unvan" style="font-weight: bold; display: block; margin-bottom: 5px;">Ünvan:</label>
+                <input type="text" id="unvan" name="unvan" placeholder="Şirket Adınızı Girin" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="vergi-numarasi" style="font-weight: bold; display: block; margin-bottom: 5px;">Vergi Numarası:</label>
+                <input type="text" id="vergi-numarasi" name="vergi-numarasi" placeholder="Vergi Numaranızı Girin" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="vergi-dairesi" style="font-weight: bold; display: block; margin-bottom: 5px;">Vergi Dairesi:</label>
+                <input type="text" id="vergi-dairesi" name="vergi-dairesi" placeholder="Vergi Dairesi Adı" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label for="eposta" style="font-weight: bold; display: block; margin-bottom: 5px;">E-Posta Adresi:</label>
+                <input type="email" id="eposta" name="eposta" placeholder="E-posta Adresinizi Girin" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Ödeme Seçenekleri -->
+    <div class="odeme-secenekleri">
+        <h3>Ödeme Seçenekleri</h3>
+        <p>Ödemenizi güvenle yapabilirsiniz</p>
+    </div>
+
+    <!-- Sipariş Özeti -->
+    <div class="siparis-ozeti">
+        <h3>Sipariş Özeti</h3>
+        <ul>
+            <li>Sipariş Tutarı <span id="cart-price">₺209,25</span></li>
+            <li>Kargo Tutarı <span id = "cargo-price">₺49,90</span></li>
+            <li><strong>Genel Toplam <span id="cart-total">₺259,15</span></strong></li>
+        </ul>
+        <button class="tamamla">Ödeme Sayfasına Geç</button>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const faturaTipiSelect = document.getElementById('fatura-tipi');
+        const kurumsalFaturaBilgileri = document.getElementById('kurumsal-fatura-bilgileri');
+
+        faturaTipiSelect.addEventListener('change', function () {
+            if (faturaTipiSelect.value === 'kurumsal') {
+                kurumsalFaturaBilgileri.style.display = 'block';
+            } else {
+                kurumsalFaturaBilgileri.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-secondary mt-5 pt-5">
+    <div class="row px-xl-5 pt-5" style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center;">
+        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            <h5 class="text-secondary text-uppercase mb-4">ALDE</h5>
+            <!--                <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor. Rebum tempor no vero est magna amet no</p>-->
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>ANKARA</p>
+            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>aldeogrencikafasi@gmail.com</p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>0542 375 05 61</p>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <div class="row">
+                <div class="col-md-8 mb-5">
+                    <h5 class="text-secondary text-uppercase mb-4">ALIŞVERİŞ BİLGİLERİ</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-secondary mb-2" href="hesabim.html"><i class="fa fa-angle-right mr-2"></i>Hesabım</a>
+                        <a class="text-secondary mb-2" href="Siparislerim.html"><i class="fa fa-angle-right mr-2"></i>Siparişlerim</a>
+                        <a class="text-secondary mb-2" href="Sozlesmelerim.html"><i class="fa fa-angle-right mr-2"></i>Sözleşmeler</a>
+                    </div>
+                </div>
+                <!--        -->
+                <!--        <div class="col-md-4 mb-5">-->
+                <!--          <h5 class="text-secondary text-uppercase mb-4">POPÜLER KATEGORİLER</h5>-->
+                <!--          <div class="d-flex flex-column justify-content-start">-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Genel Yetenek Genel Kültür</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Eğitim Bilimleri</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Lise-Önlisans</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>ÖABT</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>A-Grubu</a>-->
+                <!--            <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>E-KPSS</a>-->
+                <!--          </div>-->
+                <!--        </div>-->
+                <!--        <div class="col-md-4 mb-5">-->
+                <!--          <h5 class="text-secondary text-uppercase mb-4">POPÜLER YAYINEVLERİ</h5>-->
+                <!--          <div class="d-flex flex-column justify-content-start">-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Benim Hocam Yayıncılık</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Çanta Yayıncılık</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Arı Yayıncılık</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Üç Dört Beş Yayıncılık</a>-->
+                <!--          </div>-->
+                <!--        </div>-->
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row border-top mx-xl-5 py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="col-md-6 px-xl-0">
+            <p class="mb-md-0 text-center text-md-left text-secondary">
+                &copy; <a class="text-primary" href="#"></a>All Rights Reserved. Designed
+                by
+                <a class="text-primary" href="https://dagliyazilim.com/">Dağlı</a>
+            </p>
+        </div>
+        <div class="col-md-6 px-xl-0 text-center text-md-right">
+            <img class="img-fluid" src="img/payments.png" alt="">
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<div class="whatsapp-button" onclick="openWhatsApp()">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</div>
+<script src="js/whatsapp.js"></script>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+<script src="js/loadCategories.js"></script>
+<script src="js/search.js"></script>
+
+<script src="js/security.js"></script>
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/completeOrder.js"></script>
+</body>
+
+</html>

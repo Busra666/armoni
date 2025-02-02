@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ALDE Home</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="auth-container">
+    <img src="img/arka_plan.png" alt="Arka Plan" class="background-img">
+    <div class="auth-box" id="formContainer">
+        <h2>Üye Ol</h2>
+      <form action="#" method="post" id="signupForm">
+        <input type="text" placeholder="Adınız" name="ad" required>
+        <input type="text" placeholder="Soyadınız" name="soyad" required>
+        <input type="text" placeholder="Kullanıcı Adı" name="Kullanıcı Adı" required>
+        <input type="email" placeholder="E-posta Adresiniz" name="email" required>
+        <input type="password" placeholder="Şifre" name="sifre" required>
+          <div>
+              <input
+                      type="tel"
+                      placeholder="Telefon Numarası"
+                      name="telefon"
+                      required
+                      id="telefon"
+                      pattern="[0-9]+"
+                      title="Sadece rakam girebilirsiniz."
+              >
+          </div>
+
+          <script>
+              // Yalnızca rakam girişini kontrol etmek için
+              document.getElementById("telefon").addEventListener("input", function (e) {
+                  // Kullanıcının girdiği değeri kontrol eder ve rakam olmayan karakterleri kaldırır
+                  e.target.value = e.target.value.replace(/[^0-9]/g, '');
+              });
+          </script>
+
+        <select name="cinsiyet" required>
+            <option value="">Cinsiyet</option>
+            <option value="erkek">Erkek</option>
+            <option value="kadin">Kadın</option>
+            <option value="diger">Belirtmek İstemiyorum</option>
+        </select>
+
+<!--        <div>-->
+<!--            <select name="sehir" required>-->
+<!--                <option value="">Şehir Seçiniz</option>-->
+<!--            </select>-->
+<!--            <select name="ilce" required>-->
+<!--                <option value="">İlçe Seçiniz</option>-->
+<!--            </select>-->
+<!--        </div>-->
+
+
+          <div class="checkbox-container">
+              <label>
+                  <input type="checkbox" name="kampanya_email">
+                  Kampanya, duyuru, bilgilendirmelerden e-posta ile haberdar olmak istiyorum.
+              </label>
+          </div>
+
+<!--          <div class="checkbox-container">-->
+<!--              <label>-->
+<!--            <input type="checkbox" name="kampanya_sms">-->
+<!--            Kampanya, duyuru, bilgilendirmelerden sms ile haberdar olmak istiyorum.-->
+<!--              </label>-->
+<!--        </div>-->
+
+        <div class="checkbox-container">
+            <label>
+            <input type="checkbox" name="uyelik_sartlari" required>
+            Üyelik koşullarını ve <a href="#">kişisel verilerimin korunmasını</a> kabul ediyorum.</label>
+        </div>
+
+        <div class="button-container">
+            <button type="submit" id="uyeOlButton">Üye Ol</button>
+        </div>
+
+
+      </form>
+    </div>
+
+    <!-- E-posta Doğrulama Ekranı -->
+    <div class="verification-container" id="verificationContainer">
+        <h2>E-posta Doğrulama</h2>
+        <p>Lütfen e-posta adresinize gönderilen doğrulama kodunu girin:</p>
+        <input type="text" placeholder="Doğrulama Kodu" id="verificationCode">
+        <button type="button" id="verifyButton">Doğrula</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+        // Üye Ol butonuna tıklanınca doğrulama ekranı açılır
+        document.getElementById("uyeOlButton").addEventListener("click", function() {
+        });
+
+
+        // Doğrula butonu
+        document.getElementById("verifyButton").addEventListener("click", function() {
+            let code = document.getElementById("verificationCode").value;
+            if (code === "123456") { // Örnek doğrulama kodu
+                alert("Doğrulama başarılı! Üyeliğiniz tamamlandı.");
+            } else {
+                alert("Hatalı kod! Lütfen tekrar deneyin.");
+            }
+        });
+
+
+         */
+    </script>
+
+</div>
+
+<!--<div class="auth-container">-->
+<!--    <img src="img/arka_plan.png" alt="Arka Plan" class="background-img">-->
+<!--    <div class="auth-box">-->
+<!--        <h2>Üye Ol</h2>-->
+<!--        <form id="signupForm">-->
+<!--            <input type="text" placeholder="Kullanıcı Adı" name="username" required>-->
+<!--            <input type="email" placeholder="E-posta" name="email" required>-->
+<!--            <input type="password" placeholder="Şifre" name="password" required>-->
+<!--            <button type="submit">Kayıt Ol</button>-->
+<!--            <p>Zaten bir hesabınız var mı? <a href="giris.html">Giriş Yap</a></p>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-secondary mt-5 pt-5">
+    <div class="row px-xl-5 pt-5" style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center;">
+        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            <h5 class="text-secondary text-uppercase mb-4">ALDE</h5>
+            <!--                <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed dolor. Rebum tempor no vero est magna amet no</p>-->
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>ANKARA</p>
+            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>aldeogrencikafasi@gmail.com</p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>0542 375 05 61</p>
+        </div>
+        <div class="col-lg-4 col-md-12">
+            <div class="row">
+                <div class="col-md-8 mb-5">
+                    <h5 class="text-secondary text-uppercase mb-4">ALIŞVERİŞ BİLGİLERİ</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-secondary mb-2" href="hesabim.html"><i class="fa fa-angle-right mr-2"></i>Hesabım</a>
+                        <a class="text-secondary mb-2" href="Siparislerim.html"><i class="fa fa-angle-right mr-2"></i>Siparişlerim</a>
+                        <a class="text-secondary mb-2" href="Sozlesmelerim.html"><i class="fa fa-angle-right mr-2"></i>Sözleşmeler</a>
+                    </div>
+                </div>
+                <!--        -->
+                <!--        <div class="col-md-4 mb-5">-->
+                <!--          <h5 class="text-secondary text-uppercase mb-4">POPÜLER KATEGORİLER</h5>-->
+                <!--          <div class="d-flex flex-column justify-content-start">-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Genel Yetenek Genel Kültür</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Eğitim Bilimleri</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Lise-Önlisans</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>ÖABT</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>A-Grubu</a>-->
+                <!--            <a class="text-secondary" href="#"><i class="fa fa-angle-right mr-2"></i>E-KPSS</a>-->
+                <!--          </div>-->
+                <!--        </div>-->
+                <!--        <div class="col-md-4 mb-5">-->
+                <!--          <h5 class="text-secondary text-uppercase mb-4">POPÜLER YAYINEVLERİ</h5>-->
+                <!--          <div class="d-flex flex-column justify-content-start">-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Benim Hocam Yayıncılık</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Çanta Yayıncılık</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Arı Yayıncılık</a>-->
+                <!--            <a class="text-secondary mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Üç Dört Beş Yayıncılık</a>-->
+                <!--          </div>-->
+                <!--        </div>-->
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row border-top mx-xl-5 py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="col-md-6 px-xl-0">
+            <p class="mb-md-0 text-center text-md-left text-secondary">
+                &copy; <a class="text-primary" href="#"></a>All Rights Reserved. Designed
+                by
+                <a class="text-primary" href="https://dagliyazilim.com/">Dağlı</a>
+            </p>
+        </div>
+        <div class="col-md-6 px-xl-0 text-center text-md-right">
+            <img class="img-fluid" src="img/payments.png" alt="">
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+<div class="whatsapp-button" onclick="openWhatsApp()">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+</div>
+<script src="js/whatsapp.js"></script>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+    <script src="js/auth.js"></script>
+<script src="js/security.js"></script>
+<script src="js/search.js"></script>
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
